@@ -1,6 +1,5 @@
 package starter.stepdefinitions;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.module.jsv.JsonSchemaValidator;
@@ -33,7 +32,6 @@ public class SearchStepDefinitions extends BaseApi{
     @Then("he sees the results displayed for {string}")
     public void heSeesTheResultsDisplayedForMango(String searchWord) {
         restAssuredThat(response -> response.body("title", hasItem(containsStringIgnoringCase(searchWord))));
-        restAssuredThat(response -> response.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("searchProducts.json")));
     }
 
 

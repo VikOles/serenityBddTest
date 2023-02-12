@@ -1,0 +1,16 @@
+image: gradle:alpine
+
+default:
+  tags:
+    - shell
+
+stages:
+  -  test
+
+Integration test with Serenity:
+  stage: test
+  script:
+    - ./gradlew clean test
+  artifacts:
+    paths:
+      - target/site/serenity/*
